@@ -14,7 +14,7 @@ class Inventory:
 
         # List of all logs currently in inventory
         self.logs = [log
-                     for log in pyautogui.locateAllOnScreen('log1.png', confidence=0.9)
+                     for log in pyautogui.locateAllOnScreen('willow_log.png', confidence=0.9)
                      if 550 <= log[0] <= 740]
         self.num_logs = len(self.logs)
 
