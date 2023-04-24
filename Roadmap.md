@@ -1,6 +1,6 @@
-- [ ] Look through and evaluate different repositories and pre-existing code - BOTH
-- [ ] Test found repositories and document what was learned. - BOTH
-- [ ] Edit Read.md file - BOTH
-- [ ] Beginning coding with the repositories and pre-existing code as refernce - BOTH
+- [ ] Look through and evaluate different repositories and pre-existing code - BOTH (David Completed)
+- [ ] Test found repositories and document what was learned. - BOTH (David completed)
+- [ ] Edit Read.md file - BOTH (David Completed)
+- [ ] Beginning coding with the repositories and preexisting  code as refernce - BOTH (David Working on)
 - [ ] Verify completed code - BOTH
 - [ ] Turn in completed assigment - BOTH
