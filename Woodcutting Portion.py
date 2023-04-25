@@ -4,12 +4,13 @@ import cv2
 from Inventory import Inventory
 import pyautogui
 
-# Define Trees as list of all trees detected
-TREES = []
+# Define Trees as only willow trees. This will prevent the bot from cutting all the random trees in Runescape.
+TREES = [willow]
 
-
+# Refer to images willow 1, willow 2, and willow 3
 def locate_trees(image):
     """
+   
         Locates trees on the game screen's current frame <image> and
         indicates that the trees have been found.
 
