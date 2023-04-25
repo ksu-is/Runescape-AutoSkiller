@@ -1,6 +1,8 @@
 import time
 import pyautogui
 import cv2
+# to get cv2 and pyautogui use this "py -m pip install pyautogui pi -m pip install opencv_python" in console
+
 
 
 pyautogui.FAILSAFE = True ## This enables you to cancel 
