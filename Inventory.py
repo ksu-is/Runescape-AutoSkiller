@@ -1,9 +1,7 @@
 import time
 import pyautogui
 import cv2
-# to get cv2 and pyautogui use this "py -m pip install pyautogui pi -m pip install opencv_python" in console
-
-
+from random import * 
 
 pyautogui.FAILSAFE = True ## This enables you to cancel 
 
@@ -23,7 +21,7 @@ def bankRun():
             pyautogui.moveTo(topCompass, duration=1) ## brings cursor to the top compass minimap thingy
             pyautogui.move(90, 0) ## moves cursor on the x axis away from the compass
             pyautogui.click()
-            time.sleep(5)
+            time.sleep(randrange(1, 4))
             count += 1
             
     else:
@@ -46,7 +44,7 @@ def returnbackBank():
             pyautogui.click()
             count += 1
         
-        time.sleep(34)    
+        time.sleep(randrange(1,15))    
         willowTrees()    
     else:
         print('damn cant find top compass... adjust confidence level in script for topCompass variable')
@@ -170,7 +168,7 @@ def willowbankRun():
 
 ## This function looks for willow trees to cut them down. Replace these .png with your own images if you want, or tweak the 'confidence' level of the locateonScreen methods
 def willowTrees():
-    allTrees = ["willow.png", "bothwillows.png", "willow2.png", "willow3.png", "willow4.png", "willow5.png"]
+    allTrees = ["willow.png", "bothwillows.png"]
     count = 0
     while (1==1):
         for treepic in allTrees:
@@ -208,99 +206,3 @@ def willowTrees():
 
 willowTrees()
 
-## This function is used to cut oak logs. Not called by default
-def oakLogs():
-    allTrees = ["oak9.png", "oak10.png", "oak6.png", "oak7.png", "oak8.png", "oak4.png", "oak5.png", "oak2.png", "oak.png", "oak3.png"]
-    count = 0
-    while (1==1):
-        for treepic in allTrees:
-            print(f"Looking for {treepic}")
-            treelocation = pyautogui.locateOnScreen(treepic, confidence=0.33) ## Adjust confidence level of images (Valid entries: 0-1)
-            if (treelocation):
-                fullinventory = pyautogui.locateOnScreen("fullinventory.png", confidence=0.8)
-                print (f"{treelocation}")
-                centeroftree = pyautogui.center(treelocation)
-                pyautogui.moveTo(centeroftree, duration=1)
-                pyautogui.click()
-                time.sleep(25)
-                if (fullinventory):
-                    print ('Full inventory detected. Headed to bank.')
-                    bankRun()
-                break ## Break out of for loop so we restart the process and begin searching for first pic in array
-                
-            else:
-                print("None found, searching and waiting for more.. moving eventually")
-                #time.sleep(2) ## sleep 2 secs in between looking for trees to account for trees that respawn
-                if (count > 3):
-                    #pyautogui.moveTo(treelocation, duration=1)
-                    #pyautogui.click()
-                    count = 0
-                count += 1
-                try:
-                    if (fullinventory):
-                        print('Full inventory... waiting 3 times')
-                except:
-                        continue           
-#oakLogs()
-
-## This function is used to cut regular logs. Not called by default
-def regularLogs():
-    allTrees = ["exact.png", "exact2.png", "pinetree2.png", "exact3.png", "exact4.png", "exact5.png", "pinetree.png", "leaves.png"]
-    count = 0
-    while (1==1):
-        for treepic in allTrees:
-            print(f"Looking for {treepic}")
-            treelocation = pyautogui.locateOnScreen(treepic, confidence=0.4) ## Adjust confidence level of images (Valid entries: 0-1)
-            if (treelocation):
-                print (f"{treelocation}")
-                centeroftree = pyautogui.center(treelocation)
-                pyautogui.moveTo(centeroftree, duration=1)
-                pyautogui.click()
-                time.sleep(10)
-                break ## Break out of for loop so we restart the process and begin searching for first pic in array
-            else:
-                print("None found, searching and waiting for more.. moving eventually")
-                time.sleep(2) ## sleep 2 secs in between looking for trees to account for trees that respawn
-                if (count > 3):
-                    pyautogui.moveTo(treelocation, duration=1)
-                    pyautogui.click()
-                    count = 0
-                count += 1
-
-#regularLogs()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#img_gray = cv.cvtColor(img_rgb, cv.COLOR_BGR2GRAY)   We get errors if we try to convert to grayscale, despite what docs do
-#img = cv.imread('oakwithbackground.png',0)
-    
-       
-#### Additional pyautogui methods
-#pyautogui.moveTo(250, 300, duration=2)
-#pyautogui.click()
-#pyautogui.PAUSE = 10 ## Pause for 10 seconds
-#Take screenshots and save to output file
-#im2 = pyautogui.screenshot('output.png')
-####
-
-## LATER - try to inverse current location of tree and move to that when none are found. Essentially moves character back towards where tree was initially:
-#TreeLocationString = str(treelocation)
-#print(re.sub('[1-9][1-9][1-9]', 'yo', TreeLocationString))
