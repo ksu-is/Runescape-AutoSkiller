@@ -2,6 +2,7 @@ import time
 import pyautogui
 import cv2
 from random import * 
+from playsound import playsound
 
 pyautogui.FAILSAFE = True ## This enables you to cancel 
 
@@ -102,6 +103,7 @@ def detectBankTeller():
 
 ## This function actually works. Runs from Willow Trees to Draynor Village Bank and then calls the detectBankTeller function if a bank is found on minimap first
 def willowbankRun():
+    playsound('alert.wav')
     count = 0
     topCompass = pyautogui.locateOnScreen("compass.png", confidence=0.4)
     #banklocation = pyautogui.locateOnScreen("portsarim_bank.png", confidence=0.39)
